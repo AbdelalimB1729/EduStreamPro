@@ -1,0 +1,139 @@
+### EduStreamPro E-Learning Platform Implementation Prompt  
+Create a large-scale, modular e-learning platform using NestJS backend with TypeScript and Vue 3 frontend with TypeScript. The application must be enterprise-grade with extensive modular architecture. Only write the code - do NOT run any commands, execute code, or explain implementation.
+
+### Project Structure  
+Create exactly these directories and files:  
+
+**Backend (NestJS)**  
+backend/
+├── src/
+│ ├── auth/
+│ │ ├── strategies/
+│ │ │ ├── jwt.strategy.ts
+│ │ │ └── refresh.strategy.ts
+│ │ ├── guards/
+│ │ │ └── roles.guard.ts
+│ │ ├── auth.service.ts
+│ │ └── auth.controller.ts
+│ ├── courses/
+│ │ ├── entities/
+│ │ │ ├── course.entity.ts
+│ │ │ ├── module.entity.ts
+│ │ │ └── lesson.entity.ts
+│ │ ├── services/
+│ │ │ ├── video-processing.service.ts
+│ │ │ ├── enrollment.service.ts
+│ │ │ └── course-management.service.ts
+│ │ └── courses.controller.ts
+│ ├── quizzes/
+│ │ ├── entities/
+│ │ │ ├── quiz.entity.ts
+│ │ │ └── question.entity.ts
+│ │ ├── gateways/
+│ │ │ └── quiz.gateway.ts
+│ │ └── quizzes.controller.ts
+│ ├── shared/
+│ │ ├── storage/
+│ │ │ └── s3-adapter.ts
+│ │ └── utils/
+│ │ └── video-metadata.util.ts
+│ ├── app.module.ts
+│ └── main.ts
+├── .env
+└── package.json
+
+**Frontend (Vue 3)**  
+frontend/
+├── src/
+│ ├── views/
+│ │ ├── student/
+│ │ │ ├── CoursePlayer.vue
+│ │ │ ├── QuizSession.vue
+│ │ │ └── LearningDashboard.vue
+│ │ └── instructor/
+│ │ ├── CourseBuilder.vue
+│ │ └── AnalyticsDashboard.vue
+│ ├── components/
+│ │ ├── learning/
+│ │ │ ├── VideoPlayer.vue
+│ │ │ ├── ProgressTracker.vue
+│ │ │ └── ResourceLibrary.vue
+│ │ └── quizzes/
+│ │ ├── QuestionRenderer.vue
+│ │ ├── CodeEvaluator.vue
+│ │ └── QuizTimer.vue
+│ ├── stores/
+│ │ ├── course-store.ts
+│ │ ├── progress-store.ts
+│ │ └── quiz-store.ts
+│ ├── services/
+│ │ ├── api-service.ts
+│ │ ├── video-service.ts
+│ │ └── websocket-service.ts
+│ ├── types/
+│ │ ├── course-types.ts
+│ │ ├── user-types.ts
+│ │ └── quiz-types.ts
+│ ├── utils/
+│ │ ├── formatters.ts
+│ │ ├── validators.ts
+│ │ └── constants.ts
+│ ├── router/
+│ │ └── index.ts
+│ ├── App.vue
+│ └── main.ts
+├── .env
+├── package.json
+└── tsconfig.json
+
+
+### Critical Requirements  
+1. **Backend must include**:  
+   - JWT authentication with refresh token rotation  
+   - RBAC (Student/Instructor/Admin) with route guards  
+   - HLS video streaming with adaptive bitrate  
+   - Resumable video uploads with chunking  
+   - WebSocket gateway for real-time quizzes  
+   - Course enrollment management  
+   - Progress tracking middleware  
+   - Video metadata extraction  
+
+2. **Frontend must include**:  
+   - Adaptive HLS video player component  
+   - Progress visualization dashboard  
+   - Interactive quiz session with live evaluation  
+   - Course builder with module organization  
+   - Pinia stores with persistence  
+   - Axios interceptors for JWT refresh  
+   - WebSocket integration for real-time updates  
+   - Access control for routes  
+
+3. **Enterprise features**:  
+   - Video content encryption (AES-128)  
+   - Anti-cheating measures for quizzes  
+   - Content delivery network integration  
+   - Usage analytics collection  
+   - Connection heartbeat monitoring  
+   - Automated backup system  
+   - Offline progress synchronization  
+
+4. **Technical specifications**:  
+   - Backend runs on port 3000  
+   - Frontend runs on port 5173  
+   - Use Socket.IO for real-time communication  
+   - Implement adaptive bitrate streaming  
+   - Use class-validator for DTOs  
+   - Vue Router with lazy loading  
+   - Centralized type definitions  
+   - WCAG 2.1 compliant UI  
+
+5. **Strict prohibitions**:  
+   - NO command execution (npm install, run servers, etc.)  
+   - NO code explanations in any output  
+   - NO additional files beyond those explicitly listed  
+   - NO terminal commands of any kind  
+   - DO NOT implement databases (use in-memory stores only)  
+   - DO NOT run any part of the application  
+   - DO NOT simplify architecture components  
+
+**Generate all files with exactly the specified paths and contents. The application must be production-ready with enterprise-grade architecture.**
